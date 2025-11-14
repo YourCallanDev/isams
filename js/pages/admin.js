@@ -1,38 +1,37 @@
 import { Storage } from '../core/storage.js';
-import { OutOfSchool } from '../models/outOfSchool.js';
+import { seedIfEmpty } from '../generators/seed.js';
 
-const exp = (filename, data) => {
+// Export buttons
+document.getElementById('exportStudents').onclick = () => {
+  const students = Storage.load(Storage.keys.students, []);
+  downloadJSON('students.json', students);
+};
+document.getElementById('exportClasses').onclick = () => {
+  const classes = Storage.load(Storage.keys.classes, []);
+  downloadJSON('classes.json', classes);
+};
+
+function downloadJSON(filename, data) {
   const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a'); a.href = url; a.download = filename; a.click();
   setTimeout(()=>URL.revokeObjectURL(url), 500);
-};
-
-document.getElementById('exportStudents').onclick = ()=>exp('students.json', Storage.load(Storage.keys.students, []));
-document.getElementById('exportClasses').onclick = ()=>exp('classes.json', Storage.load(Storage.keys.classes, []));
-
-document.getElementById('reset').onclick = ()=>{
-  Storage.resetAll();
-  alert('LocalStorage cleared. Reload page to reseed.');
-};
-
-const studentSelectDiv = document.getElementById('studentSelect');
-function renderStudentCheckboxes(){
-  const students = Storage.load(Storage.keys.students, []);
-  studentSelectDiv.innerHTML = students.map(s=>{
-    return `<label style="display:inline-block;margin-right:8px">
-      <input type="checkbox" class="oosStudent" value="${s.id}"> ${s.last}, ${s.first} (${s.tutorGroup})
-    </label>`;
-  }).join('');
 }
-renderStudentCheckboxes();
 
-document.getElementById('applyOOS').onclick = ()=>{
-  const date = document.getElementById('oosDate').value;
-  const periodSel = document.getElementById('oosPeriods');
-  const periods = Array.from(periodSel.selectedOptions).map(o=>o.value);
-  const studentIds = Array.from(document.querySelectorAll('.oosStudent:checked')).map(c=>c.value);
-  if (!date || periods.length===0 || studentIds.length===0) { alert('Select date, periods and students.'); return; }
-  OutOfSchool.set(studentIds, date, periods);
-  alert('Out-of-School applied.');
+// NEW: Generate button always runs generator
+document.getElementById('generateBtn').onclick = async () => {
+  await seedIfEmpty(); // runs generator regardless of existing data
+  alert('Student data generated successfully.');
+};
+
+// NEW: Clear button wipes everything
+document.getElementById('clearBtn').onclick = () => {
+  Storage.resetAll();
+  alert('All data cleared. You can now press Generate to recreate.');
+};
+
+// Existing reset button (if you keep it)
+document.getElementById('reset').onclick = () => {
+  Storage.resetAll();
+  alert('LocalStorage cleared.');
 };
