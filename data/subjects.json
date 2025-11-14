@@ -1,0 +1,24 @@
+{
+  "core": {
+    "maths": {"codePrefix":"MA","freq":4},
+    "english": {"codePrefix":"EN","freq":4},
+    "pse": {"codePrefix":"PSE","freq":2},
+    "pe": {"codePrefix":"PE","freq":1}
+  },
+  "language": ["Spanish","French","Mandarin","Latin","Additional Languages"],
+  "social": ["History","Modern Studies","Business Management"],
+  "science": ["Biology","Chemistry","Physics"],
+  "electives": [
+    "Drama","Computing Science","National PE","Spanish","French","Mandarin","Latin","Additional Languages",
+    "History","Modern Studies","Business Management","Home Economics","Biology","Chemistry","Physics",
+    "Further Mathematics","Design & Manufacture","Drama Tech"
+  ],
+  "teacherBinding": {
+    "Drama":"c.chesser",
+    "Drama Tech":"c.chesser"
+  },
+  "roomBinding": {
+    "Drama":["Studio A","Studio B"],
+    "Drama Tech":["Studio A","Studio B"]
+  }
+}
