@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>MIS Dashboard</title>
+  <title>School MIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/theme.css">
   <script type="module">
     import { seedIfEmpty } from './js/generators/seed.js';
+    // Run generator on first load
     window.addEventListener('DOMContentLoaded', seedIfEmpty);
   </script>
 </head>
 <body class="isams">
+  <!-- Sidebar navigation -->
   <aside class="sidebar">
     <h1>MIS</h1>
     <nav>
@@ -19,24 +22,36 @@
       <a href="attendance.html">Attendance</a>
       <a href="timetable.html">Timetable</a>
       <a href="behaviour.html">Behaviour</a>
-      <a href="house.html">House</a>
+      <a href="house.html">House Points</a>
       <a href="reports.html">Reports</a>
       <a href="admin.html">Admin</a>
     </nav>
   </aside>
+
+  <!-- Main content -->
   <main>
     <header class="topbar">
-      <h2>Dashboard</h2>
+      <h2>Welcome to the School MIS</h2>
       <div class="role-badge">Logged in as: c.chesser</div>
     </header>
+
     <section class="tiles">
-      <a class="tile" href="attendance.html">Take Attendance</a>
+      <a class="tile" href="dashboard.html">Go to Dashboard</a>
+      <a class="tile" href="students.html">Browse Students</a>
       <a class="tile" href="classes.html">Manage Classes</a>
-      <a class="tile" href="students.html">Student Directory</a>
-      <a class="tile" href="timetable.html">My Timetable</a>
+      <a class="tile" href="attendance.html">Take Attendance</a>
+      <a class="tile" href="timetable.html">View Timetable</a>
+      <a class="tile" href="behaviour.html">Log Behaviour</a>
+      <a class="tile" href="house.html">House Points</a>
+      <a class="tile" href="reports.html">Reports</a>
+      <a class="tile" href="admin.html">Admin Tools</a>
     </section>
-    <section id="todayClasses"></section>
-    <script type="module" src="js/pages/dashboard.js"></script>
+
+    <section style="padding:16px">
+      <p>This MIS system auto‑generates 180 Year 9 students, assigns them to tutor groups,
+         classes, and builds complete timetables. Use the navigation to explore modules.</p>
+    </section>
   </main>
 </body>
 </html>
+
