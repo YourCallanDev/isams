@@ -24,4 +24,13 @@ export function generateWeeklyTimetables(students, periods, { constraints }) {
         const hasMathToday = [...Object.values(grid[day])].some(v=>v?.sub==='Maths');
         if (!hasMathToday && candidates.includes('PE')) chosen = 'PE';
         else chosen = candidates[0];
-        if (!chosen){ grid[day]
+        if (!chosen){ grid[day][slot]={ type:'Free' }; return; }
+        tally[chosen]++; today.add(chosen);
+        grid[day][slot] = { type:'Class', sub: chosen, classCode: s.classes[chosen], room: null };
+      });
+    });
+    timetables[s.id] = grid;
+  });
+
+  return timetables;
+}
