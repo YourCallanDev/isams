@@ -9,7 +9,7 @@ import { generateWeeklyTimetables } from '../models/timetable.js';
 export async function seedIfEmpty() {
   const studentsLS = Storage.load(Storage.keys.students, null);
   const classesLS = Storage.load(Storage.keys.classes, null);
-  if (studentsLS && classesLS) return;
+  if (studentsLS && classesLS) return; // already seeded
 
   const { periods, subjects } = await loadBootstrapData();
   const subjectCatalog = buildSubjects(subjects);
@@ -35,4 +35,12 @@ export async function seedIfEmpty() {
   Storage.save(Storage.keys.behaviour, {});
   Storage.save(Storage.keys.outOfSchool, {});
   Storage.save(Storage.keys.housePoints, { Fraser:0, Morrison:0, Arthur:0, Temple:0 });
+
+  // Assign you to a Fraser tutor group automatically
+  const fraserGroup = withTT.find(s=>s.house==='Fraser')?.tutorGroup;
+  if (fraserGroup) {
+    const meta = Storage.load('mis.meta', {});
+    meta.myTutorGroup = fraserGroup;
+    Storage.save('mis.meta', meta);
+  }
 }
