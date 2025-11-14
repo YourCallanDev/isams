@@ -1,0 +1,13 @@
+body.isams { display:flex; margin:0; font-family:system-ui, Arial, sans-serif; color:#1f2937; }
+.sidebar { width:220px; background:#0f3a64; color:#fff; padding:16px; }
+.sidebar a { display:block; color:#fff; text-decoration:none; padding:8px 6px; border-radius:6px; }
+.sidebar a.active, .sidebar a:hover { background:#165a96; }
+.topbar { background:#f8fafc; border-bottom:1px solid #e5e7eb; padding:12px 16px; }
+main { flex:1; }
+.tiles { display:grid; grid-template-columns:repeat(4, minmax(180px,1fr)); gap:12px; padding:16px; }
+.tile { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px; display:block; color:#0f172a; text-decoration:none; }
+table.roll { width:100%; border-collapse:collapse; margin:16px; }
+table.roll th, table.roll td { border:1px solid #e5e7eb; padding:8px; }
+button { background:#0f3a64; color:#fff; border:none; border-radius:6px; padding:8px 12px; cursor:pointer; }
+button:hover { background:#165a96; }
+label { margin-right:12px; }
