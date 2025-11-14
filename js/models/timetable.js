@@ -1,6 +1,6 @@
-export function generateWeeklyTimetables(students, periods, { constraints }) {
+export function generateWeeklyTimetables(students, periods, { constraints, termDates }) {
   const days = ['Mon','Tue','Wed','Thu','Fri'];
-  const periodSlots = ['TUTOR','P1','P2','P3','P4','P5','P6']; // ignore BREAK/LUNCH
+  const periodSlots = ['TUTOR','P1','P2','P3','P4','P5','P6']; // BREAK/LUNCH excluded in grid
   const timetables = {};
 
   const freqFor = s => {
@@ -18,12 +18,20 @@ export function generateWeeklyTimetables(students, periods, { constraints }) {
       const today = new Set();
       periodSlots.forEach(slot=>{
         if (slot==='TUTOR'){ grid[day][slot]={ type:'Tutor', code:s.tutorGroup }; return; }
+        // candidates with remaining frequency, avoiding doubles in same day
         const candidates = Object.keys(freq).filter(sub=>tally[sub] < freq[sub] && !today.has(sub));
         let chosen = null;
-        // PE only on a maths-free day:
+
+        // PE only on a Maths-free day for the student
         const hasMathToday = [...Object.values(grid[day])].some(v=>v?.sub==='Maths');
-        if (!hasMathToday && candidates.includes('PE')) chosen = 'PE';
-        else chosen = candidates[0];
+        if (!hasMathToday && candidates.includes('PE')) {
+          chosen = 'PE';
+        } else {
+          // prioritize core, then language/social/science, then electives
+          const priorityOrder = ['Maths','English','PSE', s.selections.language, s.selections.social, s.selections.science, ...s.selections.electives];
+          chosen = priorityOrder.find(p=>candidates.includes(p)) || candidates[0];
+        }
+
         if (!chosen){ grid[day][slot]={ type:'Free' }; return; }
         tally[chosen]++; today.add(chosen);
         grid[day][slot] = { type:'Class', sub: chosen, classCode: s.classes[chosen], room: null };
