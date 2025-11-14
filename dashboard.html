@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <script type="module">
+    import { seedIfEmpty } from './js/generators/seed.js';
+    window.addEventListener('DOMContentLoaded', seedIfEmpty);
+  </script>
+</head>
+<body class="isams">
+  <aside class="sidebar">
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="dashboard.html">Dashboard</a>
+      <a href="students.html">Students</a>
+      <a href="classes.html">Classes</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="behaviour.html">Behaviour</a>
+      <a href="house.html">House</a>
+      <a href="reports.html">Reports</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </aside>
+  <main>
+    <header class="topbar">
+      <h2>Dashboard</h2>
+      <div class="role-badge">Logged in as: c.chesser</div>
+    </header>
+
+    <section class="tiles">
+      <a class="tile" href="attendance.html">Take Attendance</a>
+      <a class="tile" href="classes.html">Manage Classes</a>
+      <a class="tile" href="students.html">Student Directory</a>
+      <a class="tile" href="timetable.html">My Timetable</a>
+      <a class="tile" href="behaviour.html">Behaviour</a>
+      <a class="tile" href="house.html">House Points</a>
+      <a class="tile" href="reports.html">Reports</a>
+    </section>
+
+    <section style="padding:16px">
+      <h3>Today’s classes</h3>
+      <label>Date <input type="date" id="dashDate"></label>
+      <div id="todayList"></div>
+    </section>
+
+    <section style="padding:16px">
+      <h3>Period status</h3>
+      <div id="periodStatus"></div>
+    </section>
+
+    <script type="module" src="js/pages/dashboard.js"></script>
+  </main>
+</body>
+</html>
