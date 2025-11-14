@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Behaviour</title><link rel="stylesheet" href="css/theme.css"></head>
+<body class="isams">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="behaviour.html" class="active">Behaviour</a>
+      <a href="students.html">Students</a>
+    </nav>
+  </aside>
+  <main>
+    <header class="topbar"><h2>Behaviour</h2></header>
+    <section style="padding:16px">
+      <label>Student <input id="bStudent" placeholder="Search name"></label>
+      <label>Severity
+        <select id="bSeverity"><option>Note</option><option>Warning</option><option>Detention</option></select>
+      </label>
+      <label>Details <input id="bDetails" style="width:400px"></label>
+      <button id="bLog">Log Behaviour</button>
+      <div id="bList" style="margin-top:16px"></div>
+    </section>
+    <script type="module" src="js/pages/behaviour.js"></script>
+  </main>
+</body>
+</html>
