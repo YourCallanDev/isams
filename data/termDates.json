@@ -1,11 +1,53 @@
 {
   "terms": [
-    {"name":"Autumn","start":"2025-08-19","end":"2025-12-12"},
-    {"name":"Spring","start":"2026-01-06","end":"2026-03-27"},
-    {"name":"Summer","start":"2026-04-20","end":"2026-06-26"}
+    {
+      "name": "Autumn",
+      "start": "2025-08-21",
+      "end": "2025-12-19",
+      "notes": [
+        "Senior School finishes at 12:15 on end-of-term day"
+      ],
+      "staffDays": [
+        {"name": "Staff Induction", "date": "2025-08-18"},
+        {"name": "Staff INSET", "date": "2025-08-19"},
+        {"name": "Staff INSET", "date": "2025-08-20"},
+        {"name": "Staff INSET", "date": "2025-10-10"}
+      ],
+      "pupilReturn": "2025-08-21",
+      "holidays": [
+        {"name": "September Weekend Holiday", "start": "2025-09-26", "end": "2025-09-29"},
+        {"name": "Mid-term Holiday", "start": "2025-10-10", "end": "2025-10-17"},
+        {"name": "St Andrew’s Holiday", "start": "2025-11-21", "end": "2025-11-24"}
+      ]
+    },
+    {
+      "name": "Spring",
+      "start": "2026-01-06",
+      "end": "2026-04-02",
+      "staffDays": [
+        {"name": "Staff INSET", "date": "2026-01-05"}
+      ],
+      "pupilReturn": "2026-01-06",
+      "holidays": [
+        {"name": "Mid-term Holiday", "start": "2026-02-16", "end": "2026-02-20"},
+        {"name": "Good Friday", "start": "2026-04-03", "end": "2026-04-03"},
+        {"name": "Easter Monday", "start": "2026-04-06", "end": "2026-04-06"}
+      ]
+    },
+    {
+      "name": "Summer",
+      "start": "2026-04-21",
+      "end": "2026-06-25",
+      "staffDays": [
+        {"name": "Staff INSET", "date": "2026-04-20"},
+        {"name": "Staff INSET", "date": "2026-05-05"}
+      ],
+      "pupilReturn": "2026-04-21",
+      "holidays": [
+        {"name": "May Day Holiday", "start": "2026-05-04", "end": "2026-05-04"},
+        {"name": "Spring Bank Holiday", "start": "2026-05-22", "end": "2026-05-25"}
+      ]
+    }
   ],
-  "holidays": [
-    {"name":"October Break","start":"2025-10-12","end":"2025-10-19"},
-    {"name":"Mid-term","start":"2026-02-14","end":"2026-02-18"}
-  ]
+  "sessionEnd": "2026-06-25"
 }
