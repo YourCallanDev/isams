@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Admin</title><link rel="stylesheet" href="css/theme.css"></head>
+<body class="isams">
+  <aside class="sidebar"><nav><a href="index.html">Dashboard</a><a class="active" href="admin.html">Admin</a></nav></aside>
+  <main>
+    <header class="topbar"><h2>Admin tools</h2></header>
+    <section style="padding:16px">
+      <h3>Export JSON</h3>
+      <button id="exportStudents">Export students.json</button>
+      <button id="exportClasses">Export classes.json</button>
+
+      <h3 style="margin-top:24px">Reset LocalStorage</h3>
+      <button id="reset">Clear LocalStorage</button>
+
+      <h3 style="margin-top:24px">Mass Out-of-School</h3>
+      <label>Date <input type="date" id="oosDate"></label>
+      <label>Periods
+        <select id="oosPeriods" multiple size="7">
+          <option value="TUTOR">Tutor</option><option value="P1">P1</option><option value="P2">P2</option>
+          <option value="P3">P3</option><option value="P4">P4</option><option value="P5">P5</option><option value="P6">P6</option>
+        </select>
+      </label>
+      <div id="studentSelect"></div>
+      <button id="applyOOS">Apply Out-of-School</button>
+    </section>
+    <script type="module" src="js/pages/admin.js"></script>
+  </main>
+</body>
+</html>
