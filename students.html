@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Students</title><link rel="stylesheet" href="css/theme.css"></head>
+<body class="isams">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a class="active" href="students.html">Students</a>
+      <a href="classes.html">Classes</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="behaviour.html">Behaviour</a>
+      <a href="house.html">House</a>
+      <a href="reports.html">Reports</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </aside>
+  <main>
+    <header class="topbar"><h2>Students</h2></header>
+    <section style="padding:16px">
+      <input id="search" placeholder="Search by name, tutor group, house" style="width:300px">
+      <div id="list"></div>
+    </section>
+    <section style="padding:16px">
+      <h3>Selected student</h3>
+      <div id="profile"></div>
+    </section>
+    <script type="module" src="js/pages/students.js"></script>
+  </main>
+</body>
+</html>
